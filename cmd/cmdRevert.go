@@ -7,8 +7,7 @@ import (
 
 var cmdRevert = &cobra.Command{
 	Use:   "revert pathToLogFile",
-	Short: "",
-	Long:  ``,
+	Short: "revert commands issued.",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		utli.Revert(args[0], wet)

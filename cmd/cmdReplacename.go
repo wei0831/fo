@@ -7,8 +7,7 @@ import (
 
 var cmdReplaceName = &cobra.Command{
 	Use:   "replacename find replace",
-	Short: "",
-	Long:  ``,
+	Short: "replacename given the search pattern and replace pattern.",
 	Args:  cobra.MinimumNArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
 		utli.ReplaceName(dir, to, args[0], args[1], exclude, mode, wet)
