@@ -69,20 +69,16 @@ func Folderout(dir string, to string, wet bool) {
 	}
 
 	// Start doing work
-	wetOrNot := ""
+	startMsg := fmt.Sprintf("[CMD] %s From \"%s\" -> To \"%s\"\n", "folderout", filepath.ToSlash(dir), filepath.ToSlash(to))
 	if wet {
-		wetOrNot = "[WET]"
-	} else {
-		wetOrNot = "[DRY]"
+		startMsg = "[WET]" + startMsg
+		log.init()
+		log.info("#" + startMsg)
 	}
-	log.init()
-	startMsg := fmt.Sprintf("%s[CMD] %s From \"%s\" -> To \"%s\"\n", wetOrNot, "folderout", filepath.ToSlash(dir), filepath.ToSlash(to))
 	fmt.Printf(startMsg)
-	log.info("#" + startMsg)
 
 	// Commit transactions
 	for _, i := range toDo {
 		fmt.Print(i.commit(wet))
-		fmt.Println(i)
 	}
 }

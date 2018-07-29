@@ -6,7 +6,7 @@ import (
 )
 
 var cmdRevert = &cobra.Command{
-	Use:   "revert logPath",
+	Use:   "revert pathToLogFile",
 	Short: "",
 	Long:  ``,
 	Args:  cobra.MinimumNArgs(1),

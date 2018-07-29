@@ -69,16 +69,13 @@ func ReplaceName(dir, to, find, replace, exclude string, mode int, wet bool) {
 	}
 
 	// Start doing work
-	wetOrNot := ""
+	startMsg := fmt.Sprintf("[CMD][Mode%d] %s Find \"%s\" Replace with \"%s\" From \"%s\" -> To \"%s\"\n", mode, "replacename", find, replace, filepath.ToSlash(dir), filepath.ToSlash(to))
 	if wet {
-		wetOrNot = "[WET]"
-	} else {
-		wetOrNot = "[DRY]"
+		startMsg = "[WET]" + startMsg
+		log.init()
+		log.info("#" + startMsg)
 	}
-	log.init()
-	startMsg := fmt.Sprintf("%s[CMD][Mode%d] %s Find \"%s\" Replace with \"%s\" From \"%s\" -> To \"%s\"\n", wetOrNot, mode, "replacename", find, replace, filepath.ToSlash(dir), filepath.ToSlash(to))
 	fmt.Printf(startMsg)
-	log.info("#" + startMsg)
 
 	// Commit transactions
 	for _, i := range toDo {

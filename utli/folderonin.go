@@ -62,20 +62,16 @@ func Folderin(dir string, to string, wet bool) {
 		}
 	}
 	// Start doing work
-	wetOrNot := ""
+	startMsg := fmt.Sprintf("[CMD] %s From \"%s\" -> To \"%s\"\n", "folderin", filepath.ToSlash(dir), filepath.ToSlash(to))
 	if wet {
-		wetOrNot = "[WET]"
-	} else {
-		wetOrNot = "[DRY]"
+		startMsg = "[WET]" + startMsg
+		log.init()
+		log.info("#" + startMsg)
 	}
-	log.init()
-	startMsg := fmt.Sprintf("%s[CMD] %s From \"%s\" -> To \"%s\"\n", wetOrNot, "folderin", filepath.ToSlash(dir), filepath.ToSlash(to))
-	log.info("#" + startMsg)
 	fmt.Printf(startMsg)
 
 	// Commit transactions
 	for _, i := range toDo {
-		msg := i.commit(wet)
-		fmt.Print(msg)
+		fmt.Print(i.commit(wet))
 	}
 }

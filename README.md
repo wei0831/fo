@@ -13,7 +13,7 @@ $ go get -u github.com/wei0831/fo
 ### folderin
 #### Move Something_SXXEXX into their individual folder
 ```bash
-$ folderin "D:\Video" -w
+$ fo folderin "D:\Video" -w
 ```
 <table>
     <thead>
@@ -40,7 +40,7 @@ $ folderin "D:\Video" -w
 ### folderout
 #### Move files in the folder out
 ```bash
-$ folderout "D:\Video" -w
+$ fo folderout "D:\Video" -w
 ```
 <table>
     <thead>
@@ -63,6 +63,12 @@ $ folderout "D:\Video" -w
         </tr>
     </tbody>
 </table>
+
+### revert
+#### Undo the actions
+```bash
+$ fo revert -w [pathToTheLog]
+```
 
 ### replacename
 #### Remove [Bad] in file name only
