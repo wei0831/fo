@@ -65,6 +65,8 @@ func RenameAfterFolder(dir, find, exclude string, wet bool) {
 	if wet {
 		startMsg = "[WET]" + startMsg
 		log.info("#" + startMsg)
+	} else {
+		startMsg = "[DRY]" + startMsg
 	}
 	fmt.Printf(startMsg)
 

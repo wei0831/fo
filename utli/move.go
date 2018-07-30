@@ -65,6 +65,8 @@ func Movematches(dir, to, find, exclude string, mode int, wet bool) {
 	if wet {
 		startMsg = "[WET]" + startMsg
 		log.info("#" + startMsg)
+	} else {
+		startMsg = "[DRY]" + startMsg
 	}
 	fmt.Printf(startMsg)
 

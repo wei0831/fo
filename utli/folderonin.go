@@ -60,6 +60,8 @@ func Folderin(dir string, to string, wet bool) {
 	if wet {
 		startMsg = "[WET]" + startMsg
 		log.info("#" + startMsg)
+	} else {
+		startMsg = "[DRY]" + startMsg
 	}
 	fmt.Printf(startMsg)
 
