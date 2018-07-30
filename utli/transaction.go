@@ -56,7 +56,7 @@ func (t *transaction) commit(wet bool) string {
 		// Commit changes
 		if wet {
 			// Make new folder ?
-			if err := os.MkdirAll(newDir, 0755); err != nil {
+			if err := os.MkdirAll(newDir, 0775); err != nil {
 				return fmt.Sprintf("[ERR] %s\n", err)
 			}
 			// Move
@@ -92,7 +92,7 @@ func (t *transaction) commit(wet bool) string {
 	case "MKDIR":
 		folderPath := path.Join(t.oldBase, t.oldFile)
 		if wet {
-			if err := os.MkdirAll(folderPath, 0755); err != nil {
+			if err := os.MkdirAll(folderPath, 0775); err != nil {
 				return fmt.Sprintf("[ERR] %s\n", err)
 			}
 			// Log
