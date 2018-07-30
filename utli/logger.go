@@ -34,7 +34,10 @@ func (l *logger) init() {
 	}
 }
 
-func (l logger) info(action string) {
+func (l *logger) info(action string) {
+	if l.logFileName == "" {
+		l.init()
+	}
 	f, err := os.OpenFile(path.Join(l.logFolder, l.logFileName), os.O_APPEND|os.O_CREATE|os.O_WRONLY, l.fileMode)
 	if err != nil {
 		fmt.Printf("[ERR] %s\n", err)

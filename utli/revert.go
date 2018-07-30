@@ -58,7 +58,6 @@ func Revert(logPath string, wet bool) {
 	startMsg := fmt.Sprintf("[CMD] %s \"%s\"\n", "revert", logPath)
 	if wet {
 		startMsg = "[WET]" + startMsg
-		log.init()
 		log.info("#" + startMsg)
 	}
 	fmt.Printf(startMsg)
