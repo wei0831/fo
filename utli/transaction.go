@@ -29,8 +29,15 @@ func (t *transaction) commit(wet bool) string {
 		newFileExt := filepath.Ext(newFile)
 		newFileName := newFile[0 : len(newFile)-len(newFileExt)]
 
+		// Same file move?
+		oldFileInfo, _ := os.Stat(oldPath)
+		newFileInfo, _ := os.Stat(newPath)
+		if os.SameFile(oldFileInfo, newFileInfo) {
+			return ""
+		}
+
 		// Check duplication
-		target := path.Join(t.newBase, t.newFile)
+		target := newPath
 		i := 1
 		for {
 			_, err := os.Stat(target)
