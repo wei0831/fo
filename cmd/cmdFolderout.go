@@ -7,8 +7,8 @@ import (
 
 var cmdFolderout = &cobra.Command{
 	Use:   "folderout",
-	Short: "Move files out of folders",
-	Long: `Move files inside child folders to target directory 
+	Short: "move files out of folders",
+	Long: `move files inside child folders to target directory 
 	and then delete those empty child folders.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		utli.Folderout(dir, to, wet)

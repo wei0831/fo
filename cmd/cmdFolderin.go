@@ -7,8 +7,8 @@ import (
 
 var cmdFolderin = &cobra.Command{
 	Use:   "folderin",
-	Short: "Move files into their own folders.",
-	Long:  `Move files in the given directory into their own folders.`,
+	Short: "move files into their own folders.",
+	Long:  `move files in the given directory into their own folders.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		utli.Folderin(dir, to, wet)
 	},

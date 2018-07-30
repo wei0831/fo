@@ -7,7 +7,7 @@ import (
 
 var cmdMove = &cobra.Command{
 	Use:   "move find toDirectory",
-	Short: "Move matches files/folders into target directory.",
+	Short: "move matches files/folders into target directory.",
 	Args:  cobra.MinimumNArgs(2),
 	Run: func(cmd *cobra.Command, args []string) {
 		utli.Movematches(dir, args[1], args[0], exclude, mode, wet)

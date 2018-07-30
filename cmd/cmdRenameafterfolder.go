@@ -7,7 +7,7 @@ import (
 
 var cmdRenameafterfolder = &cobra.Command{
 	Use:   "renameafterfolder find",
-	Short: "",
+	Short: "rename files inside matching folders with the folder name.",
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		utli.RenameAfterFolder(dir, args[0], exclude, wet)

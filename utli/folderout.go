@@ -27,12 +27,6 @@ func Folderout(dir string, to string, wet bool) {
 		os.Exit(1)
 	}
 
-	// Check toDir
-	if _, err := os.Stat(to); os.IsNotExist(err) {
-		fmt.Printf("[ERR] %s\n", err)
-		os.Exit(1)
-	}
-
 	// Start checking files in the dir
 	parentDir, err := ioutil.ReadDir(dir)
 	if err != nil {
