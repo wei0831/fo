@@ -46,7 +46,7 @@ func RmEmptyDir(dir string, wet bool) {
 	}
 
 	// Start doing work
-	startMsg := fmt.Sprintf("[CMD] %s In \"%s\"\n", "rmemptydir", filepath.ToSlash(dir))
+	startMsg := fmt.Sprintf("[CMD] %s In \"%s\"\n", "rmemptydir", filepath.ToSlash(dirBase))
 	if wet {
 		startMsg = "[WET]" + startMsg
 		log.info("#" + startMsg)
