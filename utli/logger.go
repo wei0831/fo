@@ -24,7 +24,7 @@ func getNewLogger() logger {
 		os.Exit(1)
 	}
 	logFolder := path.Join(home, "folog")
-	return logger{logFolder, "", 0644}
+	return logger{logFolder, "", 0755}
 }
 
 func (l *logger) init() {
