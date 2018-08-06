@@ -34,6 +34,13 @@ func (l *logger) init() {
 	}
 }
 
+func (l *logger) getFileName() string {
+	if l.logFileName == "" {
+		l.init()
+	}
+	return l.logFileName
+}
+
 func (l *logger) info(action string) {
 	if l.logFileName == "" {
 		l.init()

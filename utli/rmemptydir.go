@@ -47,16 +47,19 @@ func RmEmptyDir(dir string, wet bool) {
 
 	// Start doing work
 	startMsg := fmt.Sprintf("[CMD] %s In \"%s\"\n", "rmemptydir", filepath.ToSlash(dirBase))
+	endMsg := ""
 	if wet {
-		startMsg = "[WET]" + startMsg
 		log.info("#" + startMsg)
+		startMsg = "[WET]" + startMsg
+		endMsg = fmt.Sprintf("[DONE] saved @ \"%s\"\n", log.getFileName())
 	} else {
 		startMsg = "[DRY]" + startMsg
 	}
-	fmt.Printf(startMsg)
 
+	fmt.Printf(startMsg)
 	// Commit transactions
 	for _, i := range toDo {
 		fmt.Print(i.commit(wet))
 	}
+	fmt.Printf(endMsg)
 }

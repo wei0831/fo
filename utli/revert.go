@@ -56,17 +56,20 @@ func Revert(logPath string, wet bool) {
 
 	// Start doing work
 	startMsg := fmt.Sprintf("[CMD] %s \"%s\"\n", "revert", logPath)
+	endMsg := ""
 	if wet {
-		startMsg = "[WET]" + startMsg
 		log.info("#" + startMsg)
+		startMsg = "[WET]" + startMsg
+		endMsg = fmt.Sprintf("[DONE] saved @ \"%s\"\n", log.getFileName())
 	} else {
 		startMsg = "[DRY]" + startMsg
 	}
-	fmt.Printf(startMsg)
 
+	fmt.Printf(startMsg)
 	// Commit transactions
 	for i := len(toDo) - 1; i >= 0; i-- {
 		msg := toDo[i].commit(wet)
 		fmt.Print(msg)
 	}
+	fmt.Printf(endMsg)
 }

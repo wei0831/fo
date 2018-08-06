@@ -62,16 +62,19 @@ func RenameAfterFolder(dir, find, exclude string, wet bool) {
 
 	// Start doing work
 	startMsg := fmt.Sprintf("[CMD] %s Find \"%s\" In \"%s\"\n", "renameafterfolder", find, filepath.ToSlash(dir))
+	endMsg := ""
 	if wet {
-		startMsg = "[WET]" + startMsg
 		log.info("#" + startMsg)
+		startMsg = "[WET]" + startMsg
+		endMsg = fmt.Sprintf("[DONE] saved @ \"%s\"\n", log.getFileName())
 	} else {
 		startMsg = "[DRY]" + startMsg
 	}
-	fmt.Printf(startMsg)
 
+	fmt.Printf(startMsg)
 	// Commit transactions
 	for _, i := range toDo {
 		fmt.Print(i.commit(wet))
 	}
+	fmt.Printf(endMsg)
 }
